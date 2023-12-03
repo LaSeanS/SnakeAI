@@ -240,7 +240,7 @@ def main():
         current_time = pygame.time.get_ticks()
         
         if current_time - last_interval >= 2000:
-            if len(foods) < 3:
+            if len(foods) < 10:
                 foods.append(choose_food())
                 last_interval = current_time
                 
@@ -304,7 +304,7 @@ def main():
         # checks the snake head for collision
         if snake.check_collision(obs):
             points -= 100
-            game_over(screen, score, level)
+            #game_over(screen, score, level)
             #break  # Exit the game loop when it's over
 
         screen.fill(BACKGROUND_COLOR)
@@ -348,33 +348,39 @@ def main():
         # Problem -- tuple(snakelist,foodlist,obslist)
 
         problem = SnakeProblem((tuple(snakeList),tuple(foodList),tuple(obsList)))
-        solution = astar_search(problem,problem.h1).solution()
+        
+        if problem is not None:
 
-        # Debugging Code For Printing the Path from current position to nearest food
-        print(f"Solution: Start ->",end="")
-        for i in solution:
-            if i == UP:
-                print("UP",end="->")
-            if i == DOWN:
-                print("DOWN",end="->")
-            if i == LEFT:
-                print("LEFT",end="->")
-            if i == RIGHT:
-                print("RIGHT",end="->")
-        print("GOAL\n")
-            
+            try:
+                solution = astar_search(problem,problem.h1).solution()
 
-        # Uses the solution to preform an action 
-        if len(solution) == 0:
-            print("NO ACTION")
-        elif solution[0] == UP:
-             snake.change_direction("up")
-        elif solution[0] == DOWN:
-             snake.change_direction("down")
-        elif solution[0] == LEFT:
-            snake.change_direction("left")
-        elif solution[0] == RIGHT:
-            snake.change_direction("right")
+                # Debugging Code For Printing the Path from current position to nearest food
+                print(f"Solution: Start ->",end="")
+                for i in solution:
+                    if i == UP:
+                        print("UP",end="->")
+                    if i == DOWN:
+                        print("DOWN",end="->")
+                    if i == LEFT:
+                        print("LEFT",end="->")
+                    if i == RIGHT:
+                        print("RIGHT",end="->")
+                print("GOAL\n")
+                    
+
+                # Uses the solution to preform an action 
+                if len(solution) == 0:
+                    print("NO ACTION")
+                elif solution[0] == UP:
+                    snake.change_direction("up")
+                elif solution[0] == DOWN:
+                    snake.change_direction("down")
+                elif solution[0] == LEFT:
+                    snake.change_direction("left")
+                elif solution[0] == RIGHT:
+                    snake.change_direction("right")
+            except:
+                a = a
 
         # moves the snake based on input
         snake.move()
