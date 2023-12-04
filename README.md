@@ -4,7 +4,7 @@ An A* problem-solving solving agent developed to play an enhanced version of the
 ## To run:
 - Open SnakeAI_V3.0 for the latest version of the SnakeAI
 
-- run the Snake_Game.py file
+- Run the Snake_Game.py file
 
 ## Development Notes:
 
