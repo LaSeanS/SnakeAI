@@ -231,6 +231,7 @@ def main():
     score = 0
     level = 1
     points = 0
+    total_nodes = 0
 
     # Fonts for the score and level:
     font = pygame.font.Font(None, 36)
@@ -264,6 +265,8 @@ def main():
         a = path_actions(astar_tree_search(Problem))[0]
         head = snake.body[0]
         # print(f"HEAD: {head}")
+        total_nodes += Problem.expanded
+        print("TOTAL EXPANDED NODES: ", total_nodes)
         print(f"MOVE: {a}")
 
         if head[0] != a[0]:

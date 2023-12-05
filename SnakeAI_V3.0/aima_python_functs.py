@@ -155,8 +155,8 @@ class SnakeProblem(Problem):
         self.goal = tuple(self.goal_food)
         self.expanded = 0
 
-        print(f"INIT SNAKE: {self.snake.body[0]}")
-        print(f"INIT GOAL: {self.goal}")
+        # print(f"INIT SNAKE: {self.snake.body[0]}")
+        # print(f"INIT GOAL: {self.goal}")
         # for part in snake.body:
         #     print(f"PART: {part}")
 
@@ -247,8 +247,8 @@ class SnakeProblem(Problem):
     def is_goal(self, state):
         snake = state[2]
         #DEBUG
-        print(f"SNAKE: {snake[0]}")
-        print(f"GOAL {self.goal}")
+        # print(f"SNAKE: {snake[0]}")
+        # print(f"GOAL {self.goal}")
         return (snake[0] == self.goal)
 
     def num_foods(self, foods):
