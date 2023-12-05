@@ -1,7 +1,7 @@
 # SnakeAI
 An A* problem-solving solving agent developed to play an enhanced version of the classic Snake Game.
 
-## To run:
+## Run Instructions:
 - Open SnakeAI_V3.0 for the latest version of the SnakeAI
 
 - Run the Snake_Game.py file
